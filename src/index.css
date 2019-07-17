@@ -22,8 +22,9 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: red;
-  padding: 20px 15px;
+  background-color: rgba(0,0,0,.7);
+  padding: 20px 68px;
+  color: #F1EF26;
 
 
 }
@@ -81,6 +82,7 @@ section img {
     height: 100%;
     min-width: 300px;
     margin: auto;
+    padding-bottom: 0px;
   
   }
 
