@@ -1,6 +1,27 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import 'semantic-ui-css/semantic.min.css'
+import { Header, Segment } from 'semantic-ui-react'
+import styled from 'styled-components';
+
+
+const Image = styled.img`
+    width: 60%;
+    height: 100%;
+    max-height: 600px;
+    min-width: 360px;
+    margin: auto;
+    margin-top: 40px;
+
+`;
+
+const Explanation = styled.p`
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+`;
+
 
 
 export const GetData = () => {
@@ -31,19 +52,20 @@ export const GetData = () => {
     }, [])
 
     return (
-        <div>
-            <header>
-                <h1>{pageTitle}</h1>
-                <p className='date'>Date: {pageDate}</p>
+
+        <Segment inverted>
+            <header >
+                <Header as='h1' inverted color='red'>
+                    {pageTitle}
+                </Header>
+                <Header as='p' inverted color='blue'>Date: {pageDate}</Header>
             </header>
             <section>
-                <p className='explanation'>{pageExplanation}</p>
-                {pageMediaType=== 'video'? <iframe src={pageURL} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowFullScreen></iframe> : <img src={pageURL}></img>
-}
-                
-                {/* <iframe src={pageURL} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowFullScreen></iframe> */}
+                <Explanation className='explanation'>{pageExplanation}</Explanation>
+                {pageMediaType === 'video' ? <iframe src={pageURL} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowFullScreen></iframe> : <Image src={pageURL}></Image>}
             </section>
-        </div>
+        </Segment>
+
     )
 }
 
